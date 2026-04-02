@@ -1,0 +1,10 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "ram-details",
+  "description": "Capability for the RAM details window",
+  "windows": ["ram-details"],
+  "permissions": [
+    "core:default",
+    "core:event:allow-listen"
+  ]
+}
