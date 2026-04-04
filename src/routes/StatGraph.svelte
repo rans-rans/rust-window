@@ -13,8 +13,10 @@
   // This calculates the SVG path string every time performanceData changes
   $: pathData = chartData
     .map((val, i) => {
+      const pointCount = chartData.length;
+
       // Calculate X: spread points evenly across the width
-      const x = (i / (chartData.length - 1)) * viewWidth;
+      const x = pointCount > 1 ? (i / (pointCount - 1)) * viewWidth : 0;
 
       // Calculate Y: Invert scale (SVG 0 is top) and clamp to viewHeight
       // Using (1 - val/100) ensures 100% is at the top
@@ -29,7 +31,7 @@
   <h2>{title}({currValue.toFixed(2)}%)</h2>
   <div class="chart-wrapper">
     <svg
-      viewBox="0 {viewWidth} {viewHeight}"
+      viewBox={`0 0 ${viewWidth} ${viewHeight}`}
       preserveAspectRatio="none"
       class="chart-svg"
     >

@@ -21,7 +21,7 @@
         };
         const usedPercentage = (payload.ram_used / payload.ram_capacity) * 100;
         ramusage = usedPercentage;
-        performanceData = [...performanceData, usedPercentage].slice(-25); // Keep last 25 data points
+        performanceData = [...performanceData, usedPercentage].slice(-75); // Keep last 75 data points
       });
 
       // Cleanup function when component is destroyed
